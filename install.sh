@@ -8,7 +8,7 @@ DEST="$HOME/.config/omarchy/plugins/$ID"
 
 [[ -L $DEST ]] && rm "$DEST"
 mkdir -p "$DEST/i18n"
-cp "$SRC"/manifest.json "$SRC"/BarWidget.qml "$SRC"/README.md "$SRC"/LICENSE "$DEST"/
+cp "$SRC"/manifest.json "$SRC"/BarWidget.qml "$SRC"/README.md "$SRC"/LICENSE "$SRC"/preview.png "$DEST"/
 cp "$SRC"/i18n/*.json "$DEST/i18n/"
 
 omarchy-shell shell rescanPlugins >/dev/null 2>&1 || true

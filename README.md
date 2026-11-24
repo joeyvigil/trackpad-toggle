@@ -2,6 +2,8 @@
 
 An Omarchy shell bar widget that turns the laptop trackpad on and off.
 
+![Trackpad Toggle](preview.png)
+
 - **Click** the trackpad icon to disable or enable the trackpad.
 - The icon switches to a locked trackpad and highlights while the trackpad is off.
 - It wraps Omarchy's built-in `omarchy toggle touchpad`, so you get the normal
@@ -19,6 +21,23 @@ Or from a local checkout:
 ```bash
 ./install.sh
 ```
+
+## Remove
+
+```bash
+omarchy plugin remove io.github.joeyvigil.trackpad-toggle
+```
+
+If the trackpad is off when you remove the plugin, turn it back on with
+`omarchy toggle touchpad on`.
+
+## Requirements
+
+- Omarchy with the Quickshell-based shell (Omarchy Quattro)
+- A laptop trackpad that Hyprland detects
+
+There are no other dependencies. The plugin calls Omarchy's built-in
+`omarchy-toggle-touchpad` command and makes no network requests.
 
 ## Optional keybinding
 
