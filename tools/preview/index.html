@@ -1,0 +1,100 @@
+<!doctype html>
+<!-- Marketplace preview (1600×900 CSS px, rendered at 2× = 3200×1800).
+     Colors: Omarchy's stock Tokyo Night theme. Icons: JetBrainsMono Nerd Font.
+     Render from this directory:
+       chromium --headless=new --hide-scrollbars --force-device-scale-factor=2 \
+         --window-size=1600,900 --screenshot=../../preview.png file://$PWD/index.html -->
+<html><head><meta charset="utf-8">
+<style>
+  :root {
+    --bg: #1a1b26; --bg-dark: #13141c; --bg-darker: #0e0e14; --bg-light: #24283b;
+    --fg: #a9b1d6; --fg-dim: #565f89; --fg-bright: #c0caf5;
+    --accent: #7aa2f7; --red: #f7768e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1600px; height: 900px; overflow: hidden; }
+  body {
+    background: radial-gradient(ellipse 90% 80% at 70% 40%, #222436 0%, var(--bg) 55%, var(--bg-darker) 100%);
+    font-family: "Liberation Sans", Arial, sans-serif; color: var(--fg-bright); position: relative;
+  }
+  .nf { font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NF", monospace; font-weight: 400; line-height: 1; }
+
+  /* Bar mockup across the top */
+  .bar {
+    position: absolute; left: 0; right: 0; top: 0; height: 64px; background: var(--bg-dark);
+    border-bottom: 1px solid #1f2335; display: flex; align-items: center; padding: 0 36px;
+    font-size: 26px; color: var(--fg);
+  }
+  .ws { display: flex; gap: 22px; font-family: "JetBrainsMono Nerd Font"; font-size: 22px; }
+  .ws span { color: var(--fg-dim); } .ws span.on { color: var(--fg-bright); }
+  .clock { position: absolute; left: 50%; transform: translateX(-50%); font-family: "JetBrainsMono Nerd Font"; font-size: 22px; color: var(--fg); }
+  .status { margin-left: auto; display: flex; gap: 30px; align-items: center; }
+  .status .nf { font-size: 28px; }
+  .status .tp { color: var(--red); position: relative; }
+  .status .tp::after {
+    content: ""; position: absolute; left: -12px; right: -12px; top: -12px; bottom: -12px;
+    border: 2px solid var(--accent); border-radius: 12px;
+  }
+
+  /* Left column: title */
+  .title { position: absolute; left: 110px; top: 250px; width: 640px; }
+  .title h1 { font-size: 104px; font-weight: 700; letter-spacing: -3px; line-height: 0.95; color: var(--fg-bright); }
+  .title p { font-size: 36px; line-height: 1.35; color: var(--fg); margin-top: 34px; }
+  .title .cmd {
+    display: inline-block; margin-top: 44px; font-family: "JetBrainsMono Nerd Font"; font-size: 22px;
+    color: var(--fg-dim); background: var(--bg-dark); border: 1px solid var(--bg-light);
+    border-radius: 10px; padding: 14px 20px;
+  }
+  .title .cmd b { color: var(--accent); font-weight: 400; }
+
+  /* Right column: the two states */
+  .states { position: absolute; left: 810px; top: 200px; display: flex; align-items: center; }
+  .card {
+    width: 320px; height: 360px; border-radius: 28px; background: var(--bg-dark);
+    border: 1px solid var(--bg-light); display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 30px 60px rgba(0,0,0,.35);
+  }
+  .card .nf { font-size: 170px; }
+  .card.on .nf { color: var(--fg-bright); }
+  .card.off { border-color: rgba(247,118,142,.45); background: linear-gradient(180deg, #1d1620 0%, var(--bg-dark) 100%); }
+  .card.off .nf { color: var(--red); }
+  .card .label { margin-top: 38px; font-size: 34px; font-weight: 700; color: var(--fg-bright); }
+  .card .sub { margin-top: 10px; font-size: 22px; color: var(--fg-dim); }
+  .arrow { width: 84px; text-align: center; font-size: 44px; color: var(--fg-dim); }
+
+  /* OSD pill like Omarchy's on-screen display */
+  .osd {
+    position: absolute; left: 932px; top: 630px; width: 480px; height: 92px; border-radius: 46px;
+    background: rgba(19,20,28,.92); border: 1px solid var(--bg-light); display: flex; align-items: center; gap: 22px; justify-content: center;
+    padding: 0 36px; box-shadow: 0 20px 40px rgba(0,0,0,.4);
+  }
+  .osd .nf { font-size: 40px; color: var(--fg-bright); }
+  .osd span:last-child { font-size: 28px; color: var(--fg-bright); }
+</style></head>
+<body>
+  <div class="bar">
+    <div class="ws"><span class="on">1</span><span>2</span><span>3</span><span>4</span></div>
+    <div class="clock">Tuesday 1:49 pm</div>
+    <div class="status">
+      <span class="nf">&#xF05A9;</span>  <!-- wifi -->
+      <span class="nf">&#xF00AF;</span>  <!-- bluetooth -->
+      <span class="nf">&#xF057E;</span>  <!-- volume -->
+      <span class="nf">&#xF0079;</span>  <!-- battery -->
+      <span class="nf tp">&#xF0933;</span>  <!-- trackpad off -->
+    </div>
+  </div>
+
+  <div class="title">
+    <h1>Trackpad<br>Toggle</h1>
+    <p>One click in the bar turns your laptop trackpad off — and back on.</p>
+    <div class="cmd"><b>$</b> omarchy toggle touchpad</div>
+  </div>
+
+  <div class="states">
+    <div class="card on"><span class="nf">&#xF07F8;</span><div class="label">On</div><div class="sub">click to disable</div></div>
+    <div class="arrow nf">&#xF0054;</div>
+    <div class="card off"><span class="nf">&#xF0933;</span><div class="label">Off</div><div class="sub">click to enable</div></div>
+  </div>
+
+  <div class="osd"><span class="nf">&#xF0933;</span><span>Touchpad disabled</span></div>
+</body></html>
