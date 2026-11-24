@@ -16,10 +16,12 @@ An Omarchy shell bar widget that turns the laptop trackpad on and off.
 omarchy plugin add https://github.com/joeyvigil/trackpad-toggle --enable
 ```
 
-Or from a local checkout:
+Or by hand, cloning straight into the plugin folder:
 
 ```bash
-./install.sh
+git clone https://github.com/joeyvigil/trackpad-toggle \
+  ~/.config/omarchy/plugins/io.github.joeyvigil.trackpad-toggle
+omarchy plugin enable io.github.joeyvigil.trackpad-toggle
 ```
 
 ## Remove
