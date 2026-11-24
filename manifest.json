@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.joeyvigil.trackpad-toggle",
+  "name": "Trackpad Toggle",
+  "version": "1.0.0",
+  "author": "joeyvigil",
+  "license": "MIT",
+  "description": "Bar button that turns the laptop trackpad on and off",
+  "kinds": ["bar-widget"],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Trackpad Toggle",
+    "description": "Trackpad icon: click to enable or disable the trackpad",
+    "category": "System",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}

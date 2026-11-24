@@ -1,0 +1,5 @@
+{
+  "tooltip.enabled": "Trackpad on\nclick to disable",
+  "tooltip.disabled": "Trackpad off\nclick to enable",
+  "tooltip.missing": "No trackpad found"
+}
